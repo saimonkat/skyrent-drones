@@ -1,7 +1,7 @@
 .container {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--sdk-radius-lg);
   background: var(--sdk-bg-secondary);
 }
 
@@ -71,12 +71,8 @@
 }
 
 .spinner {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   color: var(--sdk-primary);
 }
 

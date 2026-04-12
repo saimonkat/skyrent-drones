@@ -22,6 +22,14 @@ beforeEach(() => {
     configurable: true,
   });
 
+  Object.defineProperty(navigator, 'permissions', {
+    value: {
+      query: vi.fn().mockResolvedValue({ state: 'granted' }),
+    },
+    writable: true,
+    configurable: true,
+  });
+
   HTMLCanvasElement.prototype.getContext = vi.fn().mockReturnValue({
     drawImage: vi.fn(),
   });
@@ -172,6 +180,29 @@ describe('SelfieCapture', () => {
     await waitFor(() => {
       expect(screen.getByRole('button', { name: /capture photo/i })).toBeDefined();
     });
+  });
+
+  it('shows requesting state when permission is prompt', async () => {
+    (navigator.permissions.query as ReturnType<typeof vi.fn>).mockResolvedValue({ state: 'prompt' });
+    mockGetUserMedia.mockImplementation(() => new Promise(() => {}));
+
+    render(<SelfieCapture />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/please allow camera access/i)).toBeDefined();
+    });
+  });
+
+  it('shows error immediately when permission is denied', async () => {
+    (navigator.permissions.query as ReturnType<typeof vi.fn>).mockResolvedValue({ state: 'denied' });
+
+    render(<SelfieCapture />);
+
+    await waitFor(() => {
+      expect(screen.getByText(/camera access denied/i)).toBeDefined();
+    });
+
+    expect(mockGetUserMedia).not.toHaveBeenCalled();
   });
 
   it('stops stream tracks on unmount', async () => {
