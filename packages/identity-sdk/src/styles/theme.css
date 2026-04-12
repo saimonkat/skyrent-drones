@@ -1,0 +1,12 @@
+:root {
+  --sdk-primary: #2563eb;
+  --sdk-primary-hover: #1d4ed8;
+  --sdk-bg: #ffffff;
+  --sdk-bg-secondary: #1a1a1a;
+  --sdk-bg-muted: #e5e7eb;
+  --sdk-text-primary: #333333;
+  --sdk-text-secondary: #6b7280;
+  --sdk-error: #dc3545;
+  --sdk-radius: 8px;
+  --sdk-radius-lg: 12px;
+}

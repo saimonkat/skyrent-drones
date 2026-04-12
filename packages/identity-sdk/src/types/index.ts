@@ -1,13 +1,13 @@
+import type { SelfieCaptureResult } from '../components/SelfieCapture/types';
+
+export type { SelfieCaptureResult, SelfieCaptureProps } from '../components/SelfieCapture/types';
+
 export interface AddressData {
   street: string;
   city: string;
   state: string;
   country: string;
   postalCode: string;
-}
-
-export interface SelfieCaptureResult {
-  selfieUrl: string;
 }
 
 export interface PhoneInputResult {
@@ -32,13 +32,6 @@ export interface IdentityVerificationResult {
   address: AddressData;
   score: number;
   status: VerificationStatus;
-}
-
-export interface SelfieCaptureProps {
-  onCapture?: (result: SelfieCaptureResult) => void;
-  className?: string;
-  width?: number;
-  height?: number;
 }
 
 export interface PhoneInputProps {
@@ -72,4 +65,5 @@ export interface IdentityVerificationContextValue {
   goToStep: (step: number) => void;
   isComplete: boolean;
   reset: () => void;
+  retry: () => void;
 }

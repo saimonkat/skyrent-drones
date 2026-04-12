@@ -12,10 +12,16 @@ A comment is needed only if a reader would inevitably ask "why is this done this
 
 ## File Organization
 
-- Types and interfaces → `types.ts` next to the component
-- Constants → `constants.ts`
+- Types and interfaces → always in `types.ts` next to the component, never inline
+- Constants and data objects → always in `constants.ts`, never inline in component files
 - Helpers → separate files
-- Component file should contain only the component itself
+- Component file should contain only the component itself — no types, no constants, no helpers
+
+## Imports
+
+- No deep relative paths (`../../`) — use path aliases
+- SDK: `@sdk/*` maps to `packages/identity-sdk/src/*`
+- Relative `./` within the same component directory is fine
 
 ## General Rules
 

@@ -1,0 +1,25 @@
+.button {
+  padding: 10px 24px;
+  border: none;
+  border-radius: var(--sdk-radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.button:hover {
+  opacity: 0.85;
+}
+
+.primary {
+  composes: button;
+  background: var(--sdk-primary);
+  color: white;
+}
+
+.secondary {
+  composes: button;
+  background: var(--sdk-bg-muted);
+  color: var(--sdk-text-primary);
+}

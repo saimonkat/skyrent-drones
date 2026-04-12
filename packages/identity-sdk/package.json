@@ -11,7 +11,7 @@
       "import": "./dist/identity-sdk.mjs",
       "require": "./dist/identity-sdk.cjs"
     },
-    "./styles": "./dist/style.css"
+    "./styles": "./dist/identity-sdk.css"
   },
   "files": [
     "dist"
@@ -26,15 +26,22 @@
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
     "@types/node": "^25.5.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.0",
+    "jsdom": "^29.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.7.0",
     "vite": "^6.0.0",
     "vite-plugin-dts": "^4.3.0",
+    "vite-plugin-svgr": "^5.2.0",
     "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1"
   }
 }
