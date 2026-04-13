@@ -8,9 +8,7 @@ import { resolve } from 'node:path';
 export default defineConfig({
   plugins: [react(), svgr(), dts({ rollupTypes: true })],
   resolve: {
-    alias: [
-      { find: '@sdk', replacement: resolve(__dirname, 'src') },
-    ],
+    alias: [{ find: '@sdk', replacement: resolve(__dirname, 'src') }],
   },
   // @ts-expect-error vitest 2.x bundles vite 5 types, project uses vite 6
   test: {

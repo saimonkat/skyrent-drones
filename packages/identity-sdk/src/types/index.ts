@@ -1,6 +1,8 @@
+import type { PhoneInputResult } from '../components/PhoneInput/types';
 import type { SelfieCaptureResult } from '../components/SelfieCapture/types';
 
 export type { SelfieCaptureResult, SelfieCaptureProps } from '../components/SelfieCapture/types';
+export type { PhoneInputProps, PhoneInputResult } from '../components/PhoneInput/types';
 
 export interface AddressData {
   street: string;
@@ -8,10 +10,6 @@ export interface AddressData {
   state: string;
   country: string;
   postalCode: string;
-}
-
-export interface PhoneInputResult {
-  phone: string;
 }
 
 export interface AddressFormResult {
@@ -32,12 +30,6 @@ export interface IdentityVerificationResult {
   address: AddressData;
   score: number;
   status: VerificationStatus;
-}
-
-export interface PhoneInputProps {
-  onChange?: (result: PhoneInputResult) => void;
-  defaultCountry?: string;
-  className?: string;
 }
 
 export interface AddressFormProps {

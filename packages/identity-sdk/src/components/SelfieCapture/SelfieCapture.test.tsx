@@ -183,7 +183,9 @@ describe('SelfieCapture', () => {
   });
 
   it('shows requesting state when permission is prompt', async () => {
-    (navigator.permissions.query as ReturnType<typeof vi.fn>).mockResolvedValue({ state: 'prompt' });
+    (navigator.permissions.query as ReturnType<typeof vi.fn>).mockResolvedValue({
+      state: 'prompt',
+    });
     mockGetUserMedia.mockImplementation(() => new Promise(() => {}));
 
     render(<SelfieCapture />);
@@ -194,7 +196,9 @@ describe('SelfieCapture', () => {
   });
 
   it('shows error immediately when permission is denied', async () => {
-    (navigator.permissions.query as ReturnType<typeof vi.fn>).mockResolvedValue({ state: 'denied' });
+    (navigator.permissions.query as ReturnType<typeof vi.fn>).mockResolvedValue({
+      state: 'denied',
+    });
 
     render(<SelfieCapture />);
 

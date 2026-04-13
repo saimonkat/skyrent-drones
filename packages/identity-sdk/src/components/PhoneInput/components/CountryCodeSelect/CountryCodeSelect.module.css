@@ -1,0 +1,78 @@
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--sdk-color-border, #d1d5db);
+  border-radius: var(--sdk-radius) 0 0 var(--sdk-radius);
+  background: var(--sdk-bg);
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 100%;
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--sdk-primary);
+  outline-offset: -2px;
+}
+
+.flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.dialCode {
+  color: var(--sdk-text-primary);
+  font-size: 14px;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+  color: var(--sdk-text-secondary);
+}
+
+.content {
+  background: var(--sdk-bg);
+  border: 1px solid var(--sdk-color-border, #d1d5db);
+  border-radius: var(--sdk-radius);
+  box-shadow: var(--sdk-shadow);
+  z-index: 50;
+}
+
+.viewport {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 4px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  outline: none;
+}
+
+.item[data-highlighted] {
+  background: var(--sdk-bg-muted);
+}
+
+.itemFlag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.itemName {
+  flex: 1;
+  color: var(--sdk-text-primary);
+}
+
+.itemDialCode {
+  color: var(--sdk-text-secondary);
+  font-size: 13px;
+}

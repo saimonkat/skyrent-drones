@@ -9,7 +9,12 @@ import { ERROR_MESSAGES } from './constants';
 import { useCameraStream } from './hooks/useCameraStream/useCameraStream';
 import type { SelfieCaptureProps, SelfieCaptureResult } from './types';
 
-export function SelfieCapture({ onCapture, className, width = 400, height = 500 }: SelfieCaptureProps) {
+export function SelfieCapture({
+  onCapture,
+  className,
+  width = 400,
+  height = 500,
+}: SelfieCaptureProps) {
   const { videoRef, status, error, start, stop, capture } = useCameraStream();
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
 
@@ -55,9 +60,7 @@ export function SelfieCapture({ onCapture, className, width = 400, height = 500 
       <div className={clsx(styles.container, className)} style={{ width, height }}>
         <div className={clsx(styles.statusMessage, styles.error)}>
           <p>{ERROR_MESSAGES[error.type] ?? ERROR_MESSAGES.UnknownError}</p>
-          {error.type !== 'InsecureContextError' && (
-            <Button onClick={start}>Try Again</Button>
-          )}
+          {error.type !== 'InsecureContextError' && <Button onClick={start}>Try Again</Button>}
         </div>
       </div>
     );
