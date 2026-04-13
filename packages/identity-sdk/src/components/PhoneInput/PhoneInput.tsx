@@ -3,6 +3,7 @@ import { ParseError, parsePhoneNumberWithError } from 'libphonenumber-js';
 import { type ClipboardEvent, useCallback, useState } from 'react';
 
 import { Button } from '@sdk/components/ui/Button/Button';
+import { Input } from '@sdk/components/ui/Input/Input';
 import { phoneSchema } from '@sdk/schemas/phone.schema';
 
 import styles from './PhoneInput.module.css';
@@ -68,8 +69,10 @@ export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputPr
           onChange={handleCountryChange}
           countries={COUNTRIES}
         />
-        <input
+        <Input
           type="tel"
+          name="phone"
+          autoComplete="tel-national"
           className={styles.input}
           value={phoneNumber}
           onChange={(ev) => handlePhoneChange(ev.target.value)}
@@ -77,6 +80,7 @@ export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputPr
           placeholder="Phone number"
           aria-label="Phone number"
           aria-invalid={!!error}
+          error={!!error}
         />
       </div>
       {error && <p className={styles.error}>{error}</p>}

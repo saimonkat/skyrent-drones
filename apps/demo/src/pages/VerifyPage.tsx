@@ -1,7 +1,11 @@
 import '@skyrent/identity-sdk/styles';
 
-import { PhoneInput, SelfieCapture } from '@skyrent/identity-sdk';
-import type { PhoneInputResult, SelfieCaptureResult } from '@skyrent/identity-sdk';
+import { AddressForm, PhoneInput, SelfieCapture } from '@skyrent/identity-sdk';
+import type {
+  AddressFormResult,
+  PhoneInputResult,
+  SelfieCaptureResult,
+} from '@skyrent/identity-sdk';
 
 export function VerifyPage() {
   const handleCapture = (result: SelfieCaptureResult) => {
@@ -10,6 +14,10 @@ export function VerifyPage() {
 
   const handlePhone = (result: PhoneInputResult) => {
     console.warn('Phone submitted:', result);
+  };
+
+  const handleAddress = (result: AddressFormResult) => {
+    console.warn('Address submitted:', result);
   };
 
   return (
@@ -21,6 +29,10 @@ export function VerifyPage() {
         <section>
           <h2 className="text-lg font-semibold text-gray-900 mb-3">Phone Number</h2>
           <PhoneInput onSubmit={handlePhone} />
+        </section>
+        <section>
+          <h2 className="text-lg font-semibold text-gray-900 mb-3">Address</h2>
+          <AddressForm onSubmit={handleAddress} />
         </section>
       </div>
     </div>

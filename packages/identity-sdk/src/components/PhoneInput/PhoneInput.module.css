@@ -10,24 +10,8 @@
 
 .input {
   flex: 1;
-  padding: 8px 12px;
-  border: 1px solid var(--sdk-color-border, #d1d5db);
-  border-left: none;
+  margin-left: -1px;
   border-radius: 0 var(--sdk-radius) var(--sdk-radius) 0;
-  font-size: 14px;
-  font-family: inherit;
-  color: var(--sdk-text-primary);
-  background: var(--sdk-bg);
-  outline: none;
-}
-
-.input:focus {
-  border-color: var(--sdk-primary);
-  box-shadow: inset 0 0 0 1px var(--sdk-primary);
-}
-
-.input::placeholder {
-  color: var(--sdk-text-secondary);
 }
 
 .error {

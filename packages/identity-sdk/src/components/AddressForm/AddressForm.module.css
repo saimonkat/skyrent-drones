@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+}
+
+.row > .field {
+  flex: 1;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sdk-text-primary);
+  cursor: pointer;
+}
+
+.error {
+  color: var(--sdk-error);
+  font-size: 13px;
+  margin: 0;
+}
+
+.submit {
+  align-self: flex-end;
+}

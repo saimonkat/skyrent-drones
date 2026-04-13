@@ -1,41 +1,29 @@
+import type { AddressFormResult } from '../components/AddressForm/types';
 import type { PhoneInputResult } from '../components/PhoneInput/types';
 import type { SelfieCaptureResult } from '../components/SelfieCapture/types';
 
+export type {
+  AddressData,
+  AddressFormProps,
+  AddressFormResult,
+} from '../components/AddressForm/types';
 export type { SelfieCaptureResult, SelfieCaptureProps } from '../components/SelfieCapture/types';
 export type { PhoneInputProps, PhoneInputResult } from '../components/PhoneInput/types';
-
-export interface AddressData {
-  street: string;
-  city: string;
-  state: string;
-  country: string;
-  postalCode: string;
-}
-
-export interface AddressFormResult {
-  address: AddressData;
-}
 
 export type VerificationStatus = 'verified' | 'failed';
 
 export interface IdentityData {
   selfieUrl: string;
   phone: string;
-  address: AddressData;
+  address: AddressFormResult['address'];
 }
 
 export interface IdentityVerificationResult {
   selfieUrl: string;
   phone: string;
-  address: AddressData;
+  address: AddressFormResult['address'];
   score: number;
   status: VerificationStatus;
-}
-
-export interface AddressFormProps {
-  onSubmit?: (result: AddressFormResult) => void;
-  defaultValues?: Partial<AddressData>;
-  className?: string;
 }
 
 export interface IdentityVerificationFlowProps {
