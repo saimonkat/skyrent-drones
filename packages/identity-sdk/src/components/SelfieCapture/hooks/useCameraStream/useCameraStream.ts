@@ -114,5 +114,18 @@ export function useCameraStream(): UseCameraStreamReturn {
     };
   }, [stream]);
 
+  useEffect(() => {
+    const handleVisibility = () => {
+      if (document.hidden) {
+        stop();
+      } else {
+        start();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, [stream, stop, start]);
+
   return { videoRef, stream, error, status, start, stop, capture };
 }
