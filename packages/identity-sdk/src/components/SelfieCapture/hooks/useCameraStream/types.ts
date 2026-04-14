@@ -1,4 +1,4 @@
-export type CameraStatus = 'idle' | 'requesting' | 'active' | 'denied' | 'error';
+export type CameraStatus = 'idle' | 'requesting' | 'active' | 'captured' | 'denied' | 'error';
 
 export interface CameraError {
   type:

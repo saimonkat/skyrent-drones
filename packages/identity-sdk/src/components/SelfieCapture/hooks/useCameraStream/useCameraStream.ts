@@ -35,11 +35,11 @@ export function useCameraStream(): UseCameraStreamReturn {
       videoRef.current.srcObject = null;
     }
     setStream(null);
-    setStatus('idle');
   }, [stream]);
 
   const start = useCallback(async () => {
     setError(null);
+    setStatus('idle');
 
     if (!navigator.mediaDevices?.getUserMedia) {
       setStatus('error');
@@ -96,6 +96,7 @@ export function useCameraStream(): UseCameraStreamReturn {
     }
 
     ctx.drawImage(video, 0, 0);
+    setStatus('captured');
     return canvas.toDataURL('image/jpeg', 0.8);
   }, []);
 

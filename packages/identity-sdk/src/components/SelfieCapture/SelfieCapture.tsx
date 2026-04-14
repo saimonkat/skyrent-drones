@@ -44,6 +44,10 @@ export function SelfieCapture({
     onCapture?.(result);
   };
 
+  if (status === 'idle') {
+    return null;
+  }
+
   if (status === 'requesting') {
     return (
       <div className={clsx(styles.container, className)} style={{ width, height }}>
