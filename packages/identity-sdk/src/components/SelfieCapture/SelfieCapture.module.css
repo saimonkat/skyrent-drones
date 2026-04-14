@@ -2,7 +2,6 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--sdk-radius-lg);
-  background: var(--sdk-bg-secondary);
   max-width: 100%;
 }
 
@@ -14,6 +13,7 @@
   height: 100%;
   object-fit: cover;
   transform: scaleX(-1);
+  background: var(--sdk-bg-secondary);
 }
 
 .maskOverlay {

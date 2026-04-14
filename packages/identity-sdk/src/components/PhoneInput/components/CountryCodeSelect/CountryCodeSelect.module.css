@@ -7,7 +7,6 @@
   border: 1px solid var(--sdk-color-border, #d1d5db);
   border-radius: var(--sdk-radius) 0 0 var(--sdk-radius);
   background: var(--sdk-bg);
-  font-size: 14px;
   cursor: pointer;
   white-space: nowrap;
 }
@@ -26,7 +25,6 @@
 
 .dialCode {
   color: var(--sdk-text-primary);
-  font-size: 14px;
 }
 
 .icon {

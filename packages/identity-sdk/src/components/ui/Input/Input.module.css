@@ -3,7 +3,6 @@
   padding: 0 12px;
   border: 1px solid var(--sdk-color-border, #d1d5db);
   border-radius: var(--sdk-radius);
-  font-size: 14px;
   font-family: inherit;
   color: var(--sdk-text-primary);
   background: var(--sdk-bg);
