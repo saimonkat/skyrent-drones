@@ -1,4 +1,6 @@
 .form {
+  width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -6,7 +8,14 @@
 
 .row {
   display: flex;
+  flex-direction: column;
   gap: 12px;
+}
+
+@media (min-width: 576px) {
+  .row {
+    flex-direction: row;
+  }
 }
 
 .row > .field {
@@ -33,5 +42,6 @@
 }
 
 .submit {
-  align-self: flex-end;
+  width: 100%;
+  margin-top: auto;
 }

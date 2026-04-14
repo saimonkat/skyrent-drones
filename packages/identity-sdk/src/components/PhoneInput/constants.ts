@@ -1,8 +1,9 @@
 import { getCountries, getCountryCallingCode } from 'libphonenumber-js';
 
+import type { Country } from '@sdk/types';
+import { detectCountryByTimezone } from './helpers/detectCountryByTimezone';
 import { getCountryName } from './helpers/getCountryName';
 import { getFlag } from './helpers/getFlag';
-import type { Country } from './types';
 
 export const COUNTRIES: Country[] = getCountries()
   .map((code) => ({
@@ -14,16 +15,24 @@ export const COUNTRIES: Country[] = getCountries()
   .sort((a, b) => a.name.localeCompare(b.name));
 
 export function detectDefaultCountry(): string {
+  const byTimezone = detectCountryByTimezone();
+  if (byTimezone && COUNTRIES.some((country) => country.code === byTimezone)) {
+    return byTimezone;
+  }
+
   if (typeof navigator === 'undefined') {
     return 'US';
   }
 
-  const locale = navigator.language || '';
-  const parts = locale.split('-');
-  const regionCode = parts.length > 1 ? parts[1].toUpperCase() : '';
+  const locales = navigator.languages?.length ? navigator.languages : [navigator.language];
 
-  if (regionCode && COUNTRIES.some((country) => country.code === regionCode)) {
-    return regionCode;
+  for (const locale of locales) {
+    const parts = locale.split('-');
+    const regionCode = parts.length > 1 ? parts[parts.length - 1].toUpperCase() : '';
+
+    if (regionCode && COUNTRIES.some((country) => country.code === regionCode)) {
+      return regionCode;
+    }
   }
 
   return 'US';

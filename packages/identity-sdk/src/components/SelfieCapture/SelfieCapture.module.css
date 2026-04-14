@@ -3,6 +3,7 @@
   overflow: hidden;
   border-radius: var(--sdk-radius-lg);
   background: var(--sdk-bg-secondary);
+  max-width: 100%;
 }
 
 .video {

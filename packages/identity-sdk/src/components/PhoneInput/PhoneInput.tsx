@@ -1,20 +1,45 @@
 import clsx from 'clsx';
-import { ParseError, parsePhoneNumberWithError } from 'libphonenumber-js';
-import { type ClipboardEvent, useCallback, useState } from 'react';
+import {
+  ParseError,
+  parsePhoneNumberFromString,
+  parsePhoneNumberWithError,
+} from 'libphonenumber-js';
+import type { ClipboardEvent } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Button } from '@sdk/components/ui/Button/Button';
 import { Input } from '@sdk/components/ui/Input/Input';
 import { phoneSchema } from '@sdk/schemas/phone.schema';
 
+import type { PhoneInputProps } from '@sdk/types';
 import styles from './PhoneInput.module.css';
 import { CountryCodeSelect } from './components/CountryCodeSelect/CountryCodeSelect';
 import { COUNTRIES, detectDefaultCountry } from './constants';
 import { parsePastedPhone } from './helpers/parsePastedPhone';
-import type { PhoneInputProps } from './types';
 
-export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputProps) {
-  const [selectedCountry, setSelectedCountry] = useState(defaultCountry || detectDefaultCountry);
-  const [phoneNumber, setPhoneNumber] = useState('');
+function parseDefaultPhone(phone?: string) {
+  if (!phone) {
+    return null;
+  }
+  const parsed = parsePhoneNumberFromString(phone);
+  if (parsed?.country && parsed.nationalNumber) {
+    return { country: parsed.country, nationalNumber: parsed.nationalNumber };
+  }
+  return null;
+}
+
+export function PhoneInput({
+  onSubmit,
+  defaultCountry,
+  defaultPhone,
+  submitButton = 'Continue',
+  className,
+}: PhoneInputProps) {
+  const parsedDefault = parseDefaultPhone(defaultPhone);
+  const [selectedCountry, setSelectedCountry] = useState(
+    parsedDefault?.country ?? defaultCountry ?? detectDefaultCountry,
+  );
+  const [phoneNumber, setPhoneNumber] = useState(parsedDefault?.nationalNumber ?? '');
   const [error, setError] = useState<string | null>(null);
 
   const handlePhoneChange = (value: string) => {
@@ -39,7 +64,9 @@ export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputPr
     setError(null);
   }, []);
 
-  const handleSubmit = () => {
+  const handleFormSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
+    ev.preventDefault();
+
     const result = phoneSchema.safeParse({ countryCode: selectedCountry, phoneNumber });
 
     if (!result.success) {
@@ -62,7 +89,7 @@ export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputPr
   };
 
   return (
-    <div className={clsx(styles.container, className)}>
+    <form className={clsx(styles.container, className)} onSubmit={handleFormSubmit} noValidate>
       <div className={styles.inputRow}>
         <CountryCodeSelect
           value={selectedCountry}
@@ -70,6 +97,7 @@ export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputPr
           countries={COUNTRIES}
         />
         <Input
+          autoFocus
           type="tel"
           name="phone"
           autoComplete="tel-national"
@@ -84,9 +112,9 @@ export function PhoneInput({ onSubmit, defaultCountry, className }: PhoneInputPr
         />
       </div>
       {error && <p className={styles.error}>{error}</p>}
-      <Button className={styles.submit} onClick={handleSubmit}>
-        Continue
+      <Button type="submit" className={styles.submit}>
+        {submitButton}
       </Button>
-    </div>
+    </form>
   );
 }

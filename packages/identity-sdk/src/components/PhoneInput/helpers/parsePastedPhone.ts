@@ -1,5 +1,5 @@
+import type { Country } from '@sdk/types';
 import { parsePhoneNumberFromString } from 'libphonenumber-js';
-import type { Country } from '../types';
 
 export function parsePastedPhone(pasted: string, countries: Country[]) {
   const trimmed = pasted.trim();

@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 72px;
+}
+
+.line {
+  width: 48px;
+  height: 2px;
+  background: var(--sdk-bg-muted);
+  margin-top: 15px;
+  flex-shrink: 0;
+}
+
+.lineCompleted {
+  background: var(--sdk-primary);
+}
+
+.dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--sdk-bg-muted);
+  color: var(--sdk-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dotActive {
+  background: var(--sdk-primary);
+  color: #fff;
+}
+
+.dotCompleted {
+  background: var(--sdk-primary);
+  color: #fff;
+}
+
+.dotNumber {
+  line-height: 1;
+}
+
+.checkIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.label {
+  font-size: 12px;
+  color: var(--sdk-text-secondary);
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.labelActive {
+  color: var(--sdk-primary);
+  font-weight: 600;
+}
+
+.labelCompleted {
+  color: var(--sdk-primary);
+}

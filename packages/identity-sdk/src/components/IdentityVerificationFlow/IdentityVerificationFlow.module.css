@@ -1,0 +1,55 @@
+.container {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--sdk-bg);
+  border-radius: var(--sdk-radius);
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  min-height: 36px;
+}
+
+.backButton {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: var(--sdk-radius);
+  background: none;
+  color: var(--sdk-text-secondary);
+  cursor: pointer;
+  padding: 0;
+}
+
+.backButton:hover {
+  background: var(--sdk-bg-muted);
+  color: var(--sdk-text-primary);
+}
+
+.backButton svg {
+  width: 20px;
+  height: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--sdk-text-primary);
+  margin: 0;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}

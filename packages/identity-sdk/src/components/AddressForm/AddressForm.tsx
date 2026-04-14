@@ -6,10 +6,15 @@ import { Button } from '@sdk/components/ui/Button/Button';
 import { Input } from '@sdk/components/ui/Input/Input';
 import { addressSchema } from '@sdk/schemas/address.schema';
 
+import type { AddressData, AddressFormProps } from '@sdk/types';
 import styles from './AddressForm.module.css';
-import type { AddressData, AddressFormProps } from './types';
 
-export function AddressForm({ onSubmit, defaultValues, className }: AddressFormProps) {
+export function AddressForm({
+  onSubmit,
+  defaultValues,
+  submitButton = 'Continue',
+  className,
+}: AddressFormProps) {
   const {
     register,
     handleSubmit,
@@ -38,6 +43,7 @@ export function AddressForm({ onSubmit, defaultValues, className }: AddressFormP
           Street Address
         </label>
         <Input
+          autoFocus
           id="street"
           autoComplete="street-address"
           error={!!errors.street}
@@ -113,7 +119,7 @@ export function AddressForm({ onSubmit, defaultValues, className }: AddressFormP
       </div>
 
       <Button type="submit" className={styles.submit}>
-        Continue
+        {submitButton}
       </Button>
     </form>
   );

@@ -1,4 +1,4 @@
-import type { Country } from '../../types';
+import type { Country } from '@sdk/types';
 
 export interface CountryCodeSelectProps {
   value: string;
