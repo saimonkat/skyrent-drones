@@ -2,6 +2,8 @@
 
 Drone rental application with integrated identity verification SDK.
 
+**Live Demo:** [skyrent-drones.vercel.app](https://skyrent-drones.vercel.app)
+
 ## Project Structure
 
 Monorepo with pnpm workspaces:
