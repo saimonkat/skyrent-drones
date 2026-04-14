@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 
-import ArrowLeftIcon from '@sdk/assets/arrow-left.svg?react';
 import { AddressForm } from '@sdk/components/AddressForm/AddressForm';
 import { PhoneInput } from '@sdk/components/PhoneInput/PhoneInput';
 import { SelfieCapture } from '@sdk/components/SelfieCapture/SelfieCapture';
 import { IdentityVerificationProvider } from '@sdk/context/IdentityVerificationProvider';
 import { useIdentityVerification } from '@sdk/context/useIdentityVerification';
 import { getIdentityData } from '@sdk/core/getIdentityData';
+import ArrowLeftIcon from '@sdk/icons/arrow-left.svg?react';
 import type {
   AddressFormResult,
   IdentityVerificationFlowProps,

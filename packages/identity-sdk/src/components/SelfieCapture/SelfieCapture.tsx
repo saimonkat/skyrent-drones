@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 
-import FaceMaskIcon from '@sdk/assets/face-mask.svg?react';
-import SpinnerIcon from '@sdk/assets/spinner.svg?react';
 import { Button } from '@sdk/components/ui/Button/Button';
+import FaceMaskIcon from '@sdk/icons/face-mask.svg?react';
+import SpinnerIcon from '@sdk/icons/spinner.svg?react';
 import type { SelfieCaptureProps, SelfieCaptureResult } from '@sdk/types';
 import styles from './SelfieCapture.module.css';
 import { ERROR_MESSAGES } from './constants';

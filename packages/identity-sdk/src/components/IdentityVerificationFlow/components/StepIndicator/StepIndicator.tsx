@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import CheckIcon from '@sdk/assets/check.svg?react';
+import CheckIcon from '@sdk/icons/check.svg?react';
 
 import styles from './StepIndicator.module.css';
 import type { StepIndicatorProps } from './types';

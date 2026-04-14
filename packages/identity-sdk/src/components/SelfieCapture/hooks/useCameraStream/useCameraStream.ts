@@ -125,7 +125,7 @@ export function useCameraStream(): UseCameraStreamReturn {
 
     document.addEventListener('visibilitychange', handleVisibility);
     return () => document.removeEventListener('visibilitychange', handleVisibility);
-  }, [stream, stop, start]);
+  }, [stop, start]);
 
   return { videoRef, stream, error, status, start, stop, capture };
 }

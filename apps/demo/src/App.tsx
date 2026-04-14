@@ -1,8 +1,8 @@
+import { Layout } from '@demo/components/layout/Layout';
+import { CatalogPage } from '@demo/pages/CatalogPage';
+import { CheckoutPage } from '@demo/pages/CheckoutPage';
+import { VerifyPage } from '@demo/pages/VerifyPage';
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from './components/layout/Layout';
-import { CatalogPage } from './pages/CatalogPage';
-import { CheckoutPage } from './pages/CheckoutPage';
-import { VerifyPage } from './pages/VerifyPage';
 
 export function App() {
   return (

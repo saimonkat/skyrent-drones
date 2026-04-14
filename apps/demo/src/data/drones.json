@@ -1,0 +1,114 @@
+[
+  {
+    "id": "dji-mavic-3-cine",
+    "name": "DJI Mavic 3 Cine",
+    "category": "filming",
+    "description": "Professional aerial cinematography drone with Hasselblad camera",
+    "imageUrl": "/drones/dji-mavic-3-cine.jpg",
+    "pricePerDay": 150,
+    "cameraResolution": "5.1K",
+    "specs": {
+      "Flight Time": "46 min",
+      "Max Speed": "75 km/h",
+      "Weight": "895g"
+    }
+  },
+  {
+    "id": "dji-inspire-3",
+    "name": "DJI Inspire 3",
+    "category": "filming",
+    "description": "Cinema-grade drone with full-frame 8K imaging system",
+    "imageUrl": "/drones/dji-inspire-3.jpg",
+    "pricePerDay": 350,
+    "cameraResolution": "8K",
+    "specs": {
+      "Flight Time": "28 min",
+      "Max Speed": "94 km/h",
+      "Weight": "3995g"
+    }
+  },
+  {
+    "id": "autel-evo-ii-pro",
+    "name": "Autel EVO II Pro",
+    "category": "filming",
+    "description": "Compact 6K drone with Sony 1-inch CMOS sensor",
+    "imageUrl": "/drones/autel-evo-ii-pro.jpg",
+    "pricePerDay": 120,
+    "cameraResolution": "6K",
+    "specs": {
+      "Flight Time": "42 min",
+      "Max Speed": "72 km/h",
+      "Weight": "1191g"
+    }
+  },
+  {
+    "id": "skydio-2-plus",
+    "name": "Skydio 2+",
+    "category": "filming",
+    "description": "AI-powered autonomous drone with 360° obstacle avoidance",
+    "imageUrl": "/drones/skydio-2-plus.jpg",
+    "pricePerDay": 100,
+    "cameraResolution": "4K HDR",
+    "specs": {
+      "Flight Time": "27 min",
+      "Max Speed": "58 km/h",
+      "Weight": "800g"
+    }
+  },
+  {
+    "id": "dji-flycart-30",
+    "name": "DJI FlyCart 30",
+    "category": "cargo",
+    "description": "Heavy-lift delivery drone for large payload transport",
+    "imageUrl": "/drones/dji-flycart-30.jpg",
+    "pricePerDay": 500,
+    "loadCapacityKg": 30,
+    "specs": {
+      "Flight Time": "32 min",
+      "Max Speed": "67 km/h",
+      "Weight": "42kg"
+    }
+  },
+  {
+    "id": "wingcopter-198",
+    "name": "Wingcopter 198",
+    "category": "cargo",
+    "description": "VTOL fixed-wing delivery drone for long-range logistics",
+    "imageUrl": "/drones/wingcopter-198.jpg",
+    "pricePerDay": 800,
+    "loadCapacityKg": 6,
+    "specs": {
+      "Flight Time": "110 min",
+      "Max Speed": "150 km/h",
+      "Weight": "24kg"
+    }
+  },
+  {
+    "id": "zipline-p2",
+    "name": "Zipline P2",
+    "category": "cargo",
+    "description": "Autonomous delivery drone for medical and retail logistics",
+    "imageUrl": "/drones/zipline-p2.jpg",
+    "pricePerDay": 600,
+    "loadCapacityKg": 1.8,
+    "specs": {
+      "Flight Time": "N/A",
+      "Max Speed": "105 km/h",
+      "Weight": "12kg"
+    }
+  },
+  {
+    "id": "matternet-m2",
+    "name": "Matternet M2",
+    "category": "cargo",
+    "description": "Urban delivery drone for healthcare and logistics networks",
+    "imageUrl": "/drones/matternet-m2.jpg",
+    "pricePerDay": 400,
+    "loadCapacityKg": 2,
+    "specs": {
+      "Flight Time": "20 min",
+      "Max Speed": "72 km/h",
+      "Weight": "10.5kg"
+    }
+  }
+]

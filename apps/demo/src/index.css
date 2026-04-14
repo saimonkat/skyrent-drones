@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+button {
+  cursor: pointer;
+  outline-offset: 2px;
+}

@@ -19,9 +19,10 @@ A comment is needed only if a reader would inevitably ask "why is this done this
 
 ## Imports
 
-- No deep relative paths (`../../`) — use path aliases
+- Never use `../` — always use path aliases
 - SDK: `@sdk/*` maps to `packages/identity-sdk/src/*`
-- Relative `./` within the same component directory is fine
+- Demo: `@demo/*` maps to `apps/demo/src/*`
+- `./` is fine within the same component directory (e.g. `./types`, `./constants`)
 
 ## General Rules
 

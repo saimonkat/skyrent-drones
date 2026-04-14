@@ -1,7 +1,7 @@
 import * as Select from '@radix-ui/react-select';
 import { memo, useMemo } from 'react';
 
-import ChevronDownIcon from '@sdk/assets/chevron-down.svg?react';
+import ChevronDownIcon from '@sdk/icons/chevron-down.svg?react';
 
 import styles from './CountryCodeSelect.module.css';
 import type { CountryCodeSelectProps } from './types';
