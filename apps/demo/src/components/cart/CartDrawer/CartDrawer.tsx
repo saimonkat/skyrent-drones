@@ -44,7 +44,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-100 flex justify-end">
+        <div className="fixed inset-0 z-50 flex justify-end">
           <motion.div
             className="absolute inset-0 bg-black/30"
             initial={{ opacity: 0 }}

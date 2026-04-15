@@ -38,7 +38,7 @@
   border: 1px solid var(--sdk-color-border, #d1d5db);
   border-radius: var(--sdk-radius);
   box-shadow: var(--sdk-shadow);
-  z-index: 50;
+  z-index: 100;
 }
 
 .viewport {
