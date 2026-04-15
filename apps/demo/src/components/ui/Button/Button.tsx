@@ -13,12 +13,7 @@ export function Button({
     <button
       type="button"
       {...rest}
-      className={cn(
-        VARIANT_STYLES[variant],
-        SIZE_STYLES[size],
-        fullWidth && 'w-full',
-        className,
-      )}
+      className={cn(VARIANT_STYLES[variant], SIZE_STYLES[size], fullWidth && 'w-full', className)}
     />
   );
 }

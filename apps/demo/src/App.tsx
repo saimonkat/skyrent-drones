@@ -1,8 +1,8 @@
 import { Layout } from '@demo/components/layout/Layout';
+import { VerificationGuard } from '@demo/components/verification/VerificationGuard/VerificationGuard';
 import { CatalogPage } from '@demo/pages/CatalogPage';
 import { CheckoutPage } from '@demo/pages/CheckoutPage';
 import { NotFoundPage } from '@demo/pages/NotFoundPage';
-import { VerifyPage } from '@demo/pages/VerifyPage';
 import { Route, Routes } from 'react-router-dom';
 
 export function App() {
@@ -10,8 +10,14 @@ export function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<CatalogPage />} />
-        <Route path="/verify" element={<VerifyPage />} />
-        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/checkout"
+          element={
+            <VerificationGuard>
+              <CheckoutPage />
+            </VerificationGuard>
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
