@@ -6,11 +6,7 @@ import ChevronDownIcon from '@sdk/icons/chevron-down.svg?react';
 import styles from './CountryCodeSelect.module.css';
 import type { CountryCodeSelectProps } from './types';
 
-export const CountryCodeSelect = memo(function CountryCodeSelect({
-  value,
-  onChange,
-  countries,
-}: CountryCodeSelectProps) {
+function RawCountryCodeSelect({ value, onChange, countries }: CountryCodeSelectProps) {
   const selected = useMemo(
     () => countries.find((country) => country.code === value),
     [countries, value],
@@ -43,4 +39,8 @@ export const CountryCodeSelect = memo(function CountryCodeSelect({
       </Select.Portal>
     </Select.Root>
   );
-});
+}
+
+RawCountryCodeSelect.displayName = 'CountryCodeSelect';
+
+export const CountryCodeSelect = memo(RawCountryCodeSelect);

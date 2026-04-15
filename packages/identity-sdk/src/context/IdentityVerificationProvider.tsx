@@ -1,30 +1,8 @@
-import { type ReactNode, createContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 
-import type {
-  AddressFormResult,
-  IdentityVerificationContextValue,
-  PhoneInputResult,
-  SelfieCaptureResult,
-} from '@sdk/types';
-
-interface State {
-  currentStep: number;
-  selfie: SelfieCaptureResult | null;
-  phone: PhoneInputResult | null;
-  address: AddressFormResult | null;
-}
-
-type Action =
-  | { type: 'SET_SELFIE'; payload: SelfieCaptureResult }
-  | { type: 'SET_PHONE'; payload: PhoneInputResult }
-  | { type: 'SET_ADDRESS'; payload: AddressFormResult }
-  | { type: 'NEXT_STEP' }
-  | { type: 'PREV_STEP' }
-  | { type: 'GO_TO_STEP'; payload: number }
-  | { type: 'RESET' }
-  | { type: 'RETRY' };
-
-const TOTAL_STEPS = 3;
+import type { IdentityVerificationContextValue } from '@sdk/types';
+import { TOTAL_STEPS } from './constants';
+import type { Action, IdentityVerificationProviderProps, State } from './types';
 
 const initialState: State = {
   currentStep: 0,
@@ -57,10 +35,6 @@ function reducer(state: State, action: Action): State {
 export const IdentityVerificationContext = createContext<IdentityVerificationContextValue | null>(
   null,
 );
-
-interface IdentityVerificationProviderProps {
-  children: ReactNode;
-}
 
 export function IdentityVerificationProvider({ children }: IdentityVerificationProviderProps) {
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -1,9 +1,5 @@
 import clsx from 'clsx';
-import {
-  ParseError,
-  parsePhoneNumberFromString,
-  parsePhoneNumberWithError,
-} from 'libphonenumber-js';
+import { ParseError, parsePhoneNumberWithError } from 'libphonenumber-js';
 import type { ClipboardEvent } from 'react';
 import { useCallback, useState } from 'react';
 
@@ -14,19 +10,10 @@ import { phoneSchema } from '@sdk/schemas/phone.schema';
 import type { PhoneInputProps } from '@sdk/types';
 import styles from './PhoneInput.module.css';
 import { CountryCodeSelect } from './components/CountryCodeSelect/CountryCodeSelect';
-import { COUNTRIES, detectDefaultCountry } from './constants';
+import { COUNTRIES } from './data';
+import { detectDefaultCountry } from './helpers/detectDefaultCountry';
+import { parseDefaultPhone } from './helpers/parseDefaultPhone';
 import { parsePastedPhone } from './helpers/parsePastedPhone';
-
-function parseDefaultPhone(phone?: string) {
-  if (!phone) {
-    return null;
-  }
-  const parsed = parsePhoneNumberFromString(phone);
-  if (parsed?.country && parsed.nationalNumber) {
-    return { country: parsed.country, nationalNumber: parsed.nationalNumber };
-  }
-  return null;
-}
 
 export function PhoneInput({
   onSubmit,
@@ -37,7 +24,7 @@ export function PhoneInput({
 }: PhoneInputProps) {
   const parsedDefault = parseDefaultPhone(defaultPhone);
   const [selectedCountry, setSelectedCountry] = useState(
-    parsedDefault?.country ?? defaultCountry ?? detectDefaultCountry,
+    parsedDefault?.country ?? defaultCountry ?? detectDefaultCountry(COUNTRIES),
   );
   const [phoneNumber, setPhoneNumber] = useState(parsedDefault?.nationalNumber ?? '');
   const [error, setError] = useState<string | null>(null);

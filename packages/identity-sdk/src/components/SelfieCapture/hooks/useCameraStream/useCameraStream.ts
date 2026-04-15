@@ -1,23 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { ERROR_MESSAGES } from '../../constants';
+import { queryPermission } from './queryPermission';
+import { toCameraError } from './toCameraError';
 import type { CameraError, CameraStatus, UseCameraStreamReturn } from './types';
-
-async function queryPermission(): Promise<'granted' | 'denied' | 'prompt'> {
-  try {
-    const result = await navigator.permissions.query({ name: 'camera' as PermissionName });
-    return result.state;
-  } catch {
-    return 'prompt';
-  }
-}
-
-function toCameraError(err: unknown): CameraError {
-  if (err instanceof DOMException && err.name in ERROR_MESSAGES) {
-    return { type: err.name as CameraError['type'], message: err.message };
-  }
-  return { type: 'UnknownError', message: String(err) };
-}
 
 export function useCameraStream(): UseCameraStreamReturn {
   const videoRef = useRef<HTMLVideoElement | null>(null);
