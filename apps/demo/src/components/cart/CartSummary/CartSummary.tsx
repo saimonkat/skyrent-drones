@@ -3,6 +3,7 @@ import { Button } from '@demo/components/ui/Button/Button';
 import { VerificationModal } from '@demo/components/verification/VerificationModal/VerificationModal';
 import { VerificationResult } from '@demo/components/verification/VerificationResult/VerificationResult';
 import CheckIcon from '@demo/icons/check.svg?react';
+import XIcon from '@demo/icons/x.svg?react';
 import { formatCurrency } from '@demo/lib/formatCurrency';
 import { selectItemsCount, selectTotalPrice, useCartStore } from '@demo/stores/cartStore';
 import { selectIsVerified, useVerificationStore } from '@demo/stores/verificationStore';
@@ -18,9 +19,10 @@ function CartHeader({ onClose }: CartSummaryProps) {
         <button
           type="button"
           onClick={onClose}
-          className="size-6 text-gray-400 transition-colors hover:text-gray-600"
+          className="shrink-0 size-6 flex justify-center items-center text-gray-400 transition-colors hover:text-gray-600"
+          aria-label="Close cart"
         >
-          ✕
+          <XIcon width={20} height={20} />
         </button>
       )}
     </div>

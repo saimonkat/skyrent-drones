@@ -1,11 +1,48 @@
+import { useFocusTrap } from '@demo/hooks/useFocusTrap';
+import XIcon from '@demo/icons/x.svg?react';
+import { useVerificationStore } from '@demo/stores/verificationStore';
 import { IdentityVerificationFlow } from '@skyrent/identity-sdk';
 import type { IdentityVerificationResult } from '@skyrent/identity-sdk';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-
-import { useVerificationStore } from '@demo/stores/verificationStore';
 import type { VerificationModalProps } from './types';
+
+function VerificationModalContent({ onClose }: { onClose: () => void }) {
+  const trapRef = useFocusTrap<HTMLDivElement>();
+  const setResult = useVerificationStore((state) => state.setResult);
+
+  const handleComplete = (result: IdentityVerificationResult) => {
+    setResult(result);
+    onClose();
+  };
+
+  const handleFail = (result: IdentityVerificationResult) => {
+    setResult(result);
+    onClose();
+  };
+
+  return (
+    <motion.div
+      ref={trapRef}
+      className="relative z-10 mx-4 w-full max-w-120 max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-5 md:p-10 shadow-2xl"
+      initial={{ opacity: 0, scale: 0.95, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95, y: 20 }}
+      transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute right-3 top-3 z-10 size-6 flex justify-center items-center text-gray-400 transition-colors hover:text-gray-600"
+        aria-label="Close"
+      >
+        <XIcon width={20} height={20} />
+      </button>
+      <IdentityVerificationFlow onComplete={handleComplete} onFail={handleFail} />
+    </motion.div>
+  );
+}
 
 export function VerificationModal({ open, onClose }: VerificationModalProps) {
   useEffect(() => {
@@ -25,18 +62,6 @@ export function VerificationModal({ open, onClose }: VerificationModalProps) {
       document.body.style.overflow = '';
     };
   }, [open, onClose]);
-
-  const setResult = useVerificationStore((state) => state.setResult);
-
-  const handleComplete = (result: IdentityVerificationResult) => {
-    setResult(result);
-    onClose();
-  };
-
-  const handleFail = (result: IdentityVerificationResult) => {
-    setResult(result);
-    onClose();
-  };
 
   return createPortal(
     <AnimatePresence>
@@ -58,23 +83,7 @@ export function VerificationModal({ open, onClose }: VerificationModalProps) {
             tabIndex={-1}
             aria-label="Close verification"
           />
-          <motion.div
-            className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl mx-4"
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          >
-            <button
-              type="button"
-              onClick={onClose}
-              className="absolute right-4 top-4 z-10 text-gray-400 transition-colors hover:text-gray-600"
-              aria-label="Close"
-            >
-              ✕
-            </button>
-            <IdentityVerificationFlow onComplete={handleComplete} onFail={handleFail} />
-          </motion.div>
+          <VerificationModalContent onClose={onClose} />
         </div>
       )}
     </AnimatePresence>,
