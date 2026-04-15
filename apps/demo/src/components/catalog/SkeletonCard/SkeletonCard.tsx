@@ -12,7 +12,6 @@ export function SkeletonCard() {
         <div className="flex flex-wrap gap-x-3 gap-y-1">
           <div className="h-4 w-1/2 rounded bg-gray-200" />
           <div className="h-4 w-1/3  rounded bg-gray-200" />
-          <div className="h-4 w-1/4  rounded bg-gray-200" />
           <div className="h-4 w-1/3  rounded bg-gray-200" />
         </div>
         <div className="flex flex-wrap justify-between gap-3 mt-3">
