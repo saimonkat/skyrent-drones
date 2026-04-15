@@ -10,6 +10,7 @@
     "specs": {
       "Flight Time": "46 min",
       "Max Speed": "75 km/h",
+      "Range": "30 km",
       "Weight": "895g"
     }
   },
@@ -24,6 +25,7 @@
     "specs": {
       "Flight Time": "28 min",
       "Max Speed": "94 km/h",
+      "Range": "20 km",
       "Weight": "3995g"
     }
   },
@@ -38,6 +40,7 @@
     "specs": {
       "Flight Time": "42 min",
       "Max Speed": "72 km/h",
+      "Range": "15 km",
       "Weight": "1191g"
     }
   },
@@ -52,6 +55,7 @@
     "specs": {
       "Flight Time": "27 min",
       "Max Speed": "58 km/h",
+      "Range": "6 km",
       "Weight": "800g"
     }
   },
@@ -66,6 +70,7 @@
     "specs": {
       "Flight Time": "32 min",
       "Max Speed": "67 km/h",
+      "Range": "16 km",
       "Weight": "42kg"
     }
   },
@@ -80,6 +85,7 @@
     "specs": {
       "Flight Time": "110 min",
       "Max Speed": "150 km/h",
+      "Range": "110 km",
       "Weight": "24kg"
     }
   },
@@ -94,6 +100,7 @@
     "specs": {
       "Flight Time": "N/A",
       "Max Speed": "105 km/h",
+      "Range": "300 km",
       "Weight": "12kg"
     }
   },
@@ -108,6 +115,7 @@
     "specs": {
       "Flight Time": "20 min",
       "Max Speed": "72 km/h",
+      "Range": "20 km",
       "Weight": "10.5kg"
     }
   }

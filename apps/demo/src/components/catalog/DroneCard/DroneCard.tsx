@@ -33,13 +33,13 @@ export function DroneCard({ drone }: DroneCardProps) {
 
   return (
     <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm">
-      <div className="aspect-[4/3] overflow-hidden bg-gray-100">
+      <div className="aspect-4/3 overflow-hidden bg-gray-100">
         <img src={drone.imageUrl} alt={drone.name} className="h-full w-full object-cover" />
       </div>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">{drone.name}</h3>
+          <h3 className="text-lg font-semibold text-gray-900 truncate">{drone.name}</h3>
           <p className="mt-1 text-sm text-gray-500 line-clamp-2">{drone.description}</p>
         </div>
 

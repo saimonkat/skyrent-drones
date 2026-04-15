@@ -22,9 +22,7 @@ export function CatalogPage() {
     <section>
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-            Rent a Drone
-          </h1>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Rent a Drone</h1>
           <p className="mt-1 text-gray-500">
             Professional filming and cargo drones available for daily rental
           </p>

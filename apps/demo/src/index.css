@@ -4,3 +4,7 @@ button {
   cursor: pointer;
   outline-offset: 2px;
 }
+
+button:disabled {
+  cursor: default;
+}

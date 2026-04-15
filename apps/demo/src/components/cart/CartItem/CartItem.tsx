@@ -17,8 +17,8 @@ export function CartItem({ item }: CartItemProps) {
         alt={item.drone.name}
         className="h-12 w-12 shrink-0 rounded-lg object-cover"
       />
-      <div className="flex-1">
-        <p className="font-medium text-gray-900">{item.drone.name}</p>
+      <div className="min-w-0 flex-1 pr-8 sm:pr-0">
+        <p className="font-medium text-gray-900 truncate">{item.drone.name}</p>
         <p className="text-sm text-gray-500">{formatCurrency(item.drone.pricePerDay)}/day</p>
       </div>
 
