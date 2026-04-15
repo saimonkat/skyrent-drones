@@ -7,8 +7,8 @@ export function CompletionScreen({ orderRef, onBackToCatalog }: CompletionScreen
   const animationData = useDroneAnimation();
 
   return (
-    <div className="flex flex-col items-center justify-center py-16 text-center">
-      <div className="size-80 md:size-100">
+    <div className="flex flex-col items-center justify-center py-10 md:py-16 text-center">
+      <div className="size-60 md:size-100">
         {animationData && <Lottie animationData={animationData} loop className="size-full" />}
       </div>
       <h2 className="mt-4 text-3xl font-bold text-gray-900">Rental Confirmed!</h2>
