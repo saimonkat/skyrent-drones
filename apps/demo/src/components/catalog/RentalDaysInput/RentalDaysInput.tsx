@@ -8,10 +8,11 @@ export function RentalDaysInput({ value, onChange, min = 1, max = 7 }: RentalDay
         onClick={() => onChange(Math.max(min, value - 1))}
         disabled={value <= min}
         className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-700 transition-colors hover:border-gray-300 disabled:opacity-40"
+        aria-label="Decrease rental days"
       >
         -
       </button>
-      <span className="w-12 text-center text-sm font-medium">
+      <span className="w-12 text-center text-sm font-medium" aria-live="polite">
         {value} {value === 1 ? 'day' : 'days'}
       </span>
       <button
@@ -19,6 +20,7 @@ export function RentalDaysInput({ value, onChange, min = 1, max = 7 }: RentalDay
         onClick={() => onChange(Math.min(max, value + 1))}
         disabled={value >= max}
         className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-200 text-gray-700 transition-colors hover:border-gray-300 disabled:opacity-40"
+        aria-label="Increase rental days"
       >
         +
       </button>

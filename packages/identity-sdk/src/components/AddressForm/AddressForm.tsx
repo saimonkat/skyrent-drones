@@ -37,7 +37,12 @@ export function AddressForm({
   };
 
   return (
-    <form className={clsx(styles.form, className)} onSubmit={handleSubmit(onValid)} noValidate>
+    <form
+      className={clsx(styles.form, className)}
+      onSubmit={handleSubmit(onValid)}
+      noValidate
+      data-qa="address-form"
+    >
       <div className={styles.field}>
         <label className={styles.label} htmlFor="street">
           Street Address
@@ -49,9 +54,14 @@ export function AddressForm({
           error={!!errors.street}
           placeholder="123 Main Street"
           aria-invalid={!!errors.street}
+          aria-describedby={errors.street ? 'street-error' : undefined}
           {...register('street')}
         />
-        {errors.street && <p className={styles.error}>{errors.street.message}</p>}
+        {errors.street && (
+          <p id="street-error" className={styles.error} role="alert">
+            {errors.street.message}
+          </p>
+        )}
       </div>
 
       <div className={styles.row}>
@@ -65,9 +75,14 @@ export function AddressForm({
             error={!!errors.city}
             placeholder="San Francisco"
             aria-invalid={!!errors.city}
+            aria-describedby={errors.city ? 'city-error' : undefined}
             {...register('city')}
           />
-          {errors.city && <p className={styles.error}>{errors.city.message}</p>}
+          {errors.city && (
+            <p id="city-error" className={styles.error} role="alert">
+              {errors.city.message}
+            </p>
+          )}
         </div>
 
         <div className={styles.field}>
@@ -80,9 +95,14 @@ export function AddressForm({
             error={!!errors.state}
             placeholder="California"
             aria-invalid={!!errors.state}
+            aria-describedby={errors.state ? 'state-error' : undefined}
             {...register('state')}
           />
-          {errors.state && <p className={styles.error}>{errors.state.message}</p>}
+          {errors.state && (
+            <p id="state-error" className={styles.error} role="alert">
+              {errors.state.message}
+            </p>
+          )}
         </div>
       </div>
 
@@ -97,9 +117,14 @@ export function AddressForm({
             error={!!errors.country}
             placeholder="United States"
             aria-invalid={!!errors.country}
+            aria-describedby={errors.country ? 'country-error' : undefined}
             {...register('country')}
           />
-          {errors.country && <p className={styles.error}>{errors.country.message}</p>}
+          {errors.country && (
+            <p id="country-error" className={styles.error} role="alert">
+              {errors.country.message}
+            </p>
+          )}
         </div>
 
         <div className={styles.field}>
@@ -112,13 +137,18 @@ export function AddressForm({
             error={!!errors.postalCode}
             placeholder="94102"
             aria-invalid={!!errors.postalCode}
+            aria-describedby={errors.postalCode ? 'postalCode-error' : undefined}
             {...register('postalCode')}
           />
-          {errors.postalCode && <p className={styles.error}>{errors.postalCode.message}</p>}
+          {errors.postalCode && (
+            <p id="postalCode-error" className={styles.error} role="alert">
+              {errors.postalCode.message}
+            </p>
+          )}
         </div>
       </div>
 
-      <Button type="submit" className={styles.submit}>
+      <Button type="submit" className={styles.submit} data-qa="address-submit-button">
         {submitButton}
       </Button>
     </form>

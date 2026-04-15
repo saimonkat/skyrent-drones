@@ -66,7 +66,14 @@ export function VerificationModal({ open, onClose }: VerificationModalProps) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-100 flex items-center justify-center">
+        <div
+          className="fixed inset-0 z-100 flex items-center justify-center"
+          data-qa="verification-modal"
+          /* biome-ignore lint/a11y/useSemanticElements: role dialog */
+          role="dialog"
+          aria-modal="true"
+          aria-label="Identity verification"
+        >
           <motion.div
             className="absolute inset-0 bg-black/40"
             initial={{ opacity: 0 }}

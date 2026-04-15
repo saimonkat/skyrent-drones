@@ -32,7 +32,10 @@ export function DroneCard({ drone }: DroneCardProps) {
   };
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm">
+    <div
+      className="flex flex-col overflow-hidden rounded-xl bg-white shadow-sm"
+      data-qa="drone-card"
+    >
       <div className="aspect-4/3 overflow-hidden bg-gray-100">
         <img src={drone.imageUrl} alt={drone.name} className="h-full w-full object-cover" />
       </div>
@@ -71,6 +74,7 @@ export function DroneCard({ drone }: DroneCardProps) {
           <Button
             variant={inCart ? 'success' : 'primary'}
             fullWidth
+            data-qa={inCart ? 'in-cart-button' : 'add-to-cart-button'}
             onClick={() => {
               if (inCart) {
                 openCart();

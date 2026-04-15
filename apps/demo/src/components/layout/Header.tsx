@@ -22,6 +22,7 @@ export function Header() {
               type="button"
               onClick={openCart}
               className="relative text-gray-600 transition-colors hover:text-gray-900"
+              aria-label={`Shopping cart${itemsCount > 0 ? ` (${itemsCount})` : ''}`}
             >
               <CartIcon width={24} height={24} />
               {itemsCount > 0 && (

@@ -34,6 +34,7 @@ export function CartItem({ item }: CartItemProps) {
         type="button"
         onClick={() => removeItem(item.drone.id)}
         className="absolute z-1 right-0 top-5 p-1 text-gray-400 transition-colors hover:text-red-500 sm:static"
+        aria-label={`Remove ${item.drone.name}`}
       >
         <TrashIcon width={16} height={16} />
       </button>

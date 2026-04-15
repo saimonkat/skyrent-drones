@@ -89,7 +89,12 @@ export function PhoneInput({
   };
 
   return (
-    <form className={clsx(styles.container, className)} onSubmit={handleFormSubmit} noValidate>
+    <form
+      className={clsx(styles.container, className)}
+      onSubmit={handleFormSubmit}
+      noValidate
+      data-qa="phone-input"
+    >
       <div className={styles.inputRow}>
         <CountryCodeSelect
           value={selectedCountry}
@@ -108,11 +113,16 @@ export function PhoneInput({
           placeholder="Phone number"
           aria-label="Phone number"
           aria-invalid={!!error}
+          aria-describedby={error ? 'phone-error' : undefined}
           error={!!error}
         />
       </div>
-      {error && <p className={styles.error}>{error}</p>}
-      <Button type="submit" className={styles.submit}>
+      {error && (
+        <p id="phone-error" className={styles.error} role="alert">
+          {error}
+        </p>
+      )}
+      <Button type="submit" className={styles.submit} data-qa="phone-submit-button">
         {submitButton}
       </Button>
     </form>

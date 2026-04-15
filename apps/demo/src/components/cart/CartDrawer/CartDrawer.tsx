@@ -44,7 +44,14 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
   return createPortal(
     <AnimatePresence>
       {open && (
-        <div className="fixed inset-0 z-50 flex justify-end">
+        <div
+          className="fixed inset-0 z-50 flex justify-end"
+          /* biome-ignore lint/a11y/useSemanticElements: role dialog */
+          role="dialog"
+          aria-modal="true"
+          aria-label="Shopping cart"
+          data-qa="cart-drawer"
+        >
           <motion.div
             className="absolute inset-0 bg-black/30"
             initial={{ opacity: 0 }}

@@ -36,7 +36,7 @@ export function CheckoutPage() {
   }
 
   return (
-    <section>
+    <section data-qa="checkout-page">
       <h1 className="text-2xl font-bold text-gray-900">Checkout</h1>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-2">
@@ -72,7 +72,7 @@ export function CheckoutPage() {
       </div>
 
       <div className="mt-6">
-        <Button size="lg" fullWidth onClick={handleCompleteRental}>
+        <Button size="lg" fullWidth data-qa="complete-rental-button" onClick={handleCompleteRental}>
           Complete Rental
         </Button>
       </div>

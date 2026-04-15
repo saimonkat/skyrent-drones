@@ -8,7 +8,7 @@ export function VerificationResult({ result, onRetry, onProceed }: VerificationR
   const isVerified = result.status === 'verified';
 
   return (
-    <div className="rounded-xl bg-white p-6 shadow-sm">
+    <div className="rounded-xl bg-white p-6 shadow-sm" data-qa="verification-result">
       <div className="flex items-center gap-3">
         <div
           className={cn(
@@ -23,7 +23,10 @@ export function VerificationResult({ result, onRetry, onProceed }: VerificationR
           )}
         </div>
         <div>
-          <h3 className="text-lg font-semibold text-gray-900">
+          <h3
+            className="text-lg font-semibold text-gray-900"
+            data-qa={isVerified ? 'verification-verified' : 'verification-failed'}
+          >
             {isVerified ? 'Identity Verified' : 'Verification Failed'}
           </h3>
           <p className="text-sm text-gray-500">Score: {result.score}/100</p>
@@ -70,15 +73,20 @@ export function VerificationResult({ result, onRetry, onProceed }: VerificationR
 
       <div className="mt-5 flex gap-3">
         {isVerified ? (
-          <Button fullWidth onClick={onProceed}>
+          <Button fullWidth data-qa="proceed-to-checkout-button" onClick={onProceed}>
             Proceed to Checkout
           </Button>
         ) : (
           <>
-            <Button fullWidth onClick={onRetry}>
+            <Button fullWidth data-qa="retry-verification-button" onClick={onRetry}>
               Try Again
             </Button>
-            <Button variant="secondary" fullWidth onClick={onProceed}>
+            <Button
+              variant="secondary"
+              fullWidth
+              data-qa="back-to-catalog-button"
+              onClick={onProceed}
+            >
               Back to Catalog
             </Button>
           </>

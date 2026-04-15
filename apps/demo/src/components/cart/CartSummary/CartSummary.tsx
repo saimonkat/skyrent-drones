@@ -93,17 +93,22 @@ export function CartSummary({ onClose }: CartSummaryProps) {
 
         <div className="mt-4 flex flex-col gap-2">
           {isVerified ? (
-            <Button fullWidth onClick={handleProceedToCheckout}>
+            <Button
+              fullWidth
+              data-qa="proceed-to-checkout-button"
+              onClick={handleProceedToCheckout}
+            >
               Proceed to Checkout
             </Button>
           ) : (
-            <Button fullWidth onClick={() => setVerifyOpen(true)}>
+            <Button fullWidth data-qa="verify-identity-button" onClick={() => setVerifyOpen(true)}>
               Verify Identity
             </Button>
           )}
           <Button
             variant="secondary"
             fullWidth
+            data-qa="clear-cart-button"
             onClick={() => {
               clearCart();
               clearVerification();

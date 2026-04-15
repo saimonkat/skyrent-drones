@@ -79,7 +79,7 @@ function FlowContent({ onComplete, onFail, className }: IdentityVerificationFlow
   };
 
   return (
-    <div className={clsx(styles.container, className)}>
+    <div className={clsx(styles.container, className)} data-qa="verification-flow">
       <div className={styles.header}>
         {ctx.currentStep > 1 && (
           <button

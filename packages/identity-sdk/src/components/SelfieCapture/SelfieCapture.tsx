@@ -75,10 +75,10 @@ export function SelfieCapture({
       <div className={clsx(styles.container, className)} style={{ width, height }}>
         <img src={capturedImage} alt="Captured selfie" className={styles.preview} />
         <div className={styles.actions}>
-          <Button variant="secondary" onClick={handleRetake}>
+          <Button variant="secondary" data-qa="selfie-retake-button" onClick={handleRetake}>
             Retake
           </Button>
-          <Button autoFocus onClick={handleConfirm}>
+          <Button autoFocus data-qa="selfie-confirm-button" onClick={handleConfirm}>
             Confirm
           </Button>
         </div>
@@ -88,7 +88,14 @@ export function SelfieCapture({
 
   return (
     <div className={clsx(styles.container, className)} style={{ width, height }}>
-      <video ref={videoRef} autoPlay playsInline muted className={styles.video} />
+      <video
+        ref={videoRef}
+        autoPlay
+        playsInline
+        muted
+        className={styles.video}
+        aria-label="Camera preview"
+      />
       <div className={styles.maskOverlay}>
         <FaceMaskIcon className={styles.maskSvg} preserveAspectRatio="xMidYMid slice" />
         <p className={styles.maskHint}>Position your face within the frame</p>
@@ -98,6 +105,7 @@ export function SelfieCapture({
         className={styles.captureButton}
         onClick={handleCapture}
         aria-label="Capture photo"
+        data-qa="selfie-capture-button"
       >
         <span className={styles.captureButtonInner} />
       </button>
